@@ -1,0 +1,200 @@
+/* index.css */
+/* 导入 Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 基础主题样式 - 安全版本 */
+@layer base {
+  html {
+    @apply transition-colors duration-300;
+  }
+
+  body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    background: linear-gradient(135deg, #f0f7ff 0%, #fefce8 100%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background: linear-gradient(135deg, #0c3a6e 0%, #1e3a8a 100%);
+  }
+
+  /* 小王子主题滚动条 */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #e0effe;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: #074885;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #facc15;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #eab308;
+  }
+}
+
+/* 组件样式 - 使用具体的颜色值而不是 @apply */
+@layer components {
+  .btn-primary {
+    background-color: #0c8ce9;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background-color: #026dc7;
+    transform: scale(1.05);
+  }
+
+  .btn-secondary {
+    background-color: #facc15;
+    color: #1f2937;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    background-color: #eab308;
+    transform: scale(1.05);
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .card {
+    background-color: rgba(31, 41, 55, 0.8);
+    border: 1px solid rgba(55, 65, 81, 0.2);
+  }
+
+  /* 星球轨道进度条 */
+  .planet-orbit {
+    position: relative;
+    background-color: #bae0fd;
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+
+  .dark .planet-orbit {
+    background-color: #0356a1;
+  }
+
+  .planet-progress {
+    background: linear-gradient(to right, #facc15, #f472b6);
+    height: 100%;
+    border-radius: 9999px;
+    transition: all 0.5s ease-out;
+  }
+
+  .planet-indicator {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #fbbf24;
+    border-radius: 9999px;
+    border: 2px solid white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: translateY(-50%);
+    transition: all 0.3s;
+    animation: star-twinkle 2s ease-in-out infinite;
+  }
+}
+
+/* 动画定义 */
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* 在 index.css 中添加新的动画类 */
+@layer utilities {
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-gentle {
+    animation: pulse-gentle 3s ease-in-out infinite;
+  }
+  
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+/* 添加渐变文字效果 */
+.text-gradient {
+  background: linear-gradient(135deg, #facc15, #ec4899, #0c8ce9);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease infinite;
+}
+
+/* 工具类 */
+.star-twinkle {
+  animation: star-twinkle 2s ease-in-out infinite;
+}
+
+.gentle-float {
+  animation: gentle-float 3s ease-in-out infinite;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
