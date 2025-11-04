@@ -1,6 +1,6 @@
 /* index.css */
-/* 导入 Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;500;600&display=swap');
+/* 移除 Google Fonts 导入，使用系统字体 */
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;500;600&display=swap'); */
 
 @tailwind base;
 @tailwind components;
@@ -13,13 +13,27 @@
   }
 
   body {
-    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    /* 使用系统字体替代 Google Fonts */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     background: linear-gradient(135deg, #f0f7ff 0%, #fefce8 100%);
     background-attachment: fixed;
   }
 
   .dark body {
     background: linear-gradient(135deg, #0c3a6e 0%, #1e3a8a 100%);
+  }
+
+  /* 为特定元素设置备用字体 */
+  .serif-font {
+    font-family: 'Noto Serif SC', 'SimSun', 'STSong', 'SongTi SC', 'Microsoft YaHei', serif;
+  }
+
+  .mono-font {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Liberation Mono', monospace;
+  }
+
+  .handwriting-font {
+    font-family: 'Caveat', 'KaiTi', 'STKaiti', '楷体', cursive;
   }
 
   /* 小王子主题滚动条 */
