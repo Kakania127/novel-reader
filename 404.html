@@ -1,0 +1,18 @@
+<!-- public/404.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/novel-reader/" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <script>
+      // 自动重定向到 SPA 主入口
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      var repo = '/novel-reader';
+      location.replace(repo + '/#' + path);
+    </script>
+  </body>
+</html>
